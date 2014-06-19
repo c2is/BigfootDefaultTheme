@@ -1,0 +1,26 @@
+{
+    "name": "bigfoot/default-theme",
+    "type": "symfony-bundle",
+    "description": "Bigfoot Default Theme bundle",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillaume Manen",
+            "email": "g.manen@c2is.fr"
+        }
+    ],
+    "require": {
+        "bigfoot/core-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Bigfoot\\Theme\\DefaultThemeBundle": "" }
+    },
+    "target-dir": "Bigfoot/Theme/DefaultThemeBundle",
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.x-dev"
+        }
+    }
+}
