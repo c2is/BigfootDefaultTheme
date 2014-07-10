@@ -1,0 +1,7 @@
+{% if items is defined and items|length %}
+    <ol class="dd-list">
+        {% for item in items %}
+            {% include 'BigfootDefaultThemeBundle:navigation:item.html.twig' with { 'item': item } %}
+        {% endfor %}
+    </ol>
+{% endif %}

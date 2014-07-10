@@ -1,11 +1,11 @@
 <?php
 
-namespace Bigfoot\Theme\BigfootDefaultThemeThemeBundle;
+namespace Bigfoot\Theme\DefaultThemeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class BigfootContentBundle
+ * Class BigfootDefaultThemeBundle
  *
  * @Author S.huot s.huot@c2is.fr
  * @package Bigfoot\Bundle\ContentBundle

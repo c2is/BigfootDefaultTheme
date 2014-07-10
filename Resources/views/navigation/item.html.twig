@@ -1,0 +1,23 @@
+<li class="dd-item" data-id="{{ item.id }}">
+    <div class="dd-handle">
+        {{ item.name }}
+
+        <div class="pull-right action-buttons dd-nodrag">
+            <a href="{{ path('bigfoot_menu_item_delete', {'id': item.id }) }}" class="delete-menu-item-tree red pull-right">
+                <i class="icon-trash bigger-130"></i>
+            </a>
+            <a href="#" class="ajax-modal edit-menu-item-tree pull-right" data-toggle="modal" data-url="{{ path('bigfoot_menu_item_edit', { 'id': item.id, 'layout': '_modal' }) }}" data-title="Edit item">
+                <i class="icon-pencil bigger-130"></i>
+            </a>
+            <a href="#" class="ajax-modal add-menu-item-tree pull-right" data-toggle="modal" data-url="{{ path('bigfoot_menu_item_new', { 'parent': item.id, 'layout': '_modal' }) }}" data-title="Add item">
+                <i class="icon-plus bigger-130"></i>
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+    {% if item.children|length %}
+        {% include 'BigfootDefaultThemeBundle:navigation:list.html.twig' with { 'items': item.orderedChildren } %}
+    {% endif %}
+</li>

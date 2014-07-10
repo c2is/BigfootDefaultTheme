@@ -1,0 +1,46 @@
+{% extends bigfoot_theme_bundle ~ '::layout' ~ app.request.get('layout') ~ '.html.twig' %}
+
+{% block content %}
+    {% form_theme form bigfoot_theme_bundle ~ ':form_custom:inline.html.twig' %}
+
+    {{ form_start(form, {'action': form_action, 'method': form_method|default('POST')}) }}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h5>{{ form_title }}</h5>
+                        <span class="widget-toolbar">
+                            <div class="locales-container"></div>
+                        </span>
+                    </div>
+
+                    <div class="panel-body">
+                        <form role="form">
+                            {% block form %}
+                                {{ form_rest(form) }}
+                            {% endblock %}
+
+                            {% block form_actions %}
+                                <div class="clearfix form-actions">
+                                    <div>
+                                        {% if form_cancel is defined %}
+                                            <a href="{{ path(form_cancel) }}" class="btn btn-info">
+                                                <i class="icon-remove bigger-110"></i>
+                                                {{ 'Cancel'|trans }}
+                                            </a>
+                                        {% endif %}
+
+                                        <button class="btn btn-success" type="submit">
+                                            <i class="icon-ok bigger-110"></i>
+                                            {{ form_submit|default('Submit')|trans }}
+                                        </button>
+                                    </div>
+                                </div>
+                            {% endblock %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

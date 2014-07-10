@@ -1,6 +1,6 @@
 <?php
 
-namespace Bigfoot\Theme\BigfootDefaultThemeThemeBundle\DependencyInjection;
+namespace Bigfoot\Theme\DefaultThemeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

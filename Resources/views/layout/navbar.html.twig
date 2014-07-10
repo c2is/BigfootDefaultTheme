@@ -1,0 +1,60 @@
+{%- if bigfoot_theme.menu_context is defined and bigfoot_theme.menu_context -%}
+    {%- set chosen_contexts = app.session.get('bigfoot/context/chosen_contexts') -%}
+    {%- if chosen_contexts is not null and chosen_contexts[bigfoot_theme.menu_context]|length == 1 -%}
+        {%- set current_context = chosen_contexts[bigfoot_theme.menu_context]|first -%}
+    {%- endif -%}
+{%- endif -%}
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    {% block toolbar %}
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="{{ path('admin_home') }}" class="navbar-brand">
+                    {{ bigfoot_theme.title }} - <small>{{ bigfoot_theme.subtitle }}</small>
+                </a>
+            </div>
+
+            <div class="navbar-header pull-right" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="infos">
+                        <ul class="nav navbar-nav navbar">
+                            <li class="support">
+                                <a href="#" target="_blank" class="align-right">
+                                    <i class="icon-phone align-center bigger-125 icon-on-right"></i>
+                                    <span class="align-left">Contactez le support</span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle align-right">
+                                    <i class="icon-user"></i>
+                                    <span class="user-info align-left">
+                                        {{ 'Welcome' }}, {{ app.user.fullName }}
+                                    </span>
+                                    <i class="icon-caret-down align-center icon-on-right"></i>
+                                </a>
+
+                                <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                    <li>
+                                        <a href="{{ path('admin_user_edit', { 'id': app.user.id }) }}">
+                                            <i class="icon-user"></i>
+                                            {{ 'Profile' }}
+                                        </a>
+                                    </li>
+
+                                    <li class="divider"></li>
+
+                                    <li>
+                                        <a href="{{ path('admin_logout') }}">
+                                            <i class="icon-off"></i>
+                                            {{ 'Logout' }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+</div>

@@ -1,0 +1,48 @@
+{% if type_tab == 'error' %}
+    <div class="alert alert-danger">
+        Entity <strong>{{ tab.entity }}</strong> not found or has not necessary properties for history.
+    </div>
+{% else %}
+    {% trans %}Show history from last {% endtrans %}
+    <button class="btn btn-white" onclick="show7days('{{ widget_id }}_{{ tabKey }}')">7 {% trans %}days{% endtrans %}</button>
+    <button class="btn btn-white" onclick="show14days('{{ widget_id }}_{{ tabKey }}')">14 {% trans %}days{% endtrans %}</button>
+    <button class="btn btn-white" onclick="show21days('{{ widget_id }}_{{ tabKey }}')">21 {% trans %}days{% endtrans %}</button>
+    <div class="timeline-container timeline-style2">
+    {% if tab.timeline is defined %}
+        {% for day, history in tab.timeline %}
+        <span class="timeline-label {{ history.class }}">
+            <b>{{ history.label | trans | capitalize}}</b>
+        </span>
+
+        <div class="timeline-items {{ history.class }}">
+            {% for item in history.times %}
+            <div class="timeline-item clearfix">
+                <div class="timeline-info">
+                    <span class="timeline-date">{{ item.time }}</span>
+
+                    <i class="timeline-indicator btn btn-info no-hover"></i>
+                </div>
+
+                <div class="widget-box transparent">
+                    <div class="widget-body">
+                        <div class="widget-main no-padding">
+                            <span class="bigger-110">{{ item.desc|trans({'%username%': item.username, '%name%': item.name}) }}</span>
+                        {% if item.edit_link is defined and item.edit_link %}
+                            <br>
+                            <i class="icon-zoom-in blue bigger-110"></i>
+                            <a href="{{ item.edit_link }}">{% trans %}See element{% endtrans %}</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div><!-- /.timeline-items -->
+        {% else %}
+            No history found
+        {% endfor %}
+    {% else %}
+        {% trans %}No history found{% endtrans %}
+    {% endif %}
+    </div>
+{% endif %}
