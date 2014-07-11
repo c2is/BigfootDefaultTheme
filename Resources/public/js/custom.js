@@ -213,8 +213,6 @@ function setupTranslatableFields($translatableFields)
     $toWrap.each(function() {
         if (!$(this).data('flag')) {
             $(this).wrap($wrapper);
-            $(this).parent().addClass($(this).attr('class') + ' no-padding-right no-padding-left');
-            $(this).removeClass().addClass('form-control');
 
             if ($(this).parent().hasClass('ckeditor')) {
                 $(this).parent().removeClass('ckeditor');

@@ -108,7 +108,6 @@ body {
   border-radius: 50%;
 }
 
-
 /**
  * Custom
  */
@@ -126,3 +125,23 @@ body {
 }
 
 .modal-body .form-horizontal .form-group { margin-left: 0;margin-right: 0; }
+
+.help-button {
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    padding: 0;
+    background-color: #65bcda;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: default;
+    margin-left: 4px;
+    border-radius: 100%;
+    border-color: #FFF;
+    border: 2px solid #FFF;
+    -webkit-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.2);
+    line-height: 19px;
+}
