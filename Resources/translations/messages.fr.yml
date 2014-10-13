@@ -1,0 +1,14 @@
+bigfoot:
+    crud:
+        index:
+            filter:
+                global:
+                    submit: 'Filtrer'
+                    clear: 'Réinitialiser les filtres'
+    default_theme:
+        assistance:
+            link:
+                label: 'Contactez le support'
+        home:
+            title: 'Bienvenue sur votre interface d''administration'
+        version: 'Bigfoot v%version% ©C2iS'

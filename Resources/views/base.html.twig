@@ -8,13 +8,15 @@
         <meta name="author" content="{{ bigfoot_theme.provided_by|default('provided by C2iS - Agence digitale')|trans }}">
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/bootstrap.min.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/chosen.min.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/custom.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/ui-lightness/jquery-ui-1.10.4.min.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/font-awesome.min.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/bootstrap-modal-bs3patch.css') }}" />
-            <link rel="stylesheet" href="{{ asset('bundles/bigfootdefaulttheme/css/bootstrap-modal.css') }}" />
+            {% stylesheets
+                '@admin_css'
+                output='css/bigfoot.css'
+                filter='cssrewrite'
+                debug=false
+                combine=true
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         {% endblock %}
     </head>
 
@@ -37,29 +39,27 @@
         </script>
 
         {% block javascripts %}
-            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/jquery-1.10.2.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/jquery-ui-1.10.4.min.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/jquery.form.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/jquery.portfolio.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/nestable.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/chosen.jquery.min.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/bootstrap-modalmanager.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/bootstrap-modal.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/modal.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootdefaulttheme/js/custom.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootnavigation/js/link.js') }}"></script>
-            <script src="{{ asset('bundles/bigfootcore/js/twig.js') }}"></script>
-        {% endblock %}
+            {% javascripts
+                '@admin_jquery'
+                '@admin_js'
+                output='js/bigfoot.js'
+                debug=false
+                combine=true
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
 
-        {% javascripts
-            "@BigfootCoreBundle/Resources/views/translation/locale_tabs.html.twig"
-            filter="twig_js"
-            output='compiled/admin/js/twigs.js'
-        %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+            {% javascripts
+                "@admin_twig_js"
+                filter="twig_js"
+                output='js/twigs.js'
+                debug=false
+                combine=true
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        {% endblock %}
     </body>
 </html>

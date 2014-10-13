@@ -1,0 +1,14 @@
+assetic:
+    bundles:
+        - 'BigfootDefaultThemeBundle'
+    assets:
+        admin_jquery:
+            inputs:
+                - 'bundles/bigfootdefaulttheme/vendor/jquery/dist/jquery.min.js'
+        admin_js:
+            inputs:
+                - 'bundles/bigfootdefaulttheme/js/scripts.min.js'
+                - '%kernel.root_dir%/../vendor/jms/twig-js/twig.js'
+        admin_css:
+            inputs:
+                - 'bundles/bigfootdefaulttheme/css/styles.min.css'
