@@ -11,4 +11,5 @@ assetic:
                 - '%kernel.root_dir%/../vendor/jms/twig-js/twig.js'
         admin_css:
             inputs:
-                - 'bundles/bigfootdefaulttheme/css/styles.min.css'
+                - 'bundles/bigfootdefaulttheme/css/styles.css'
+                - 'bundles/bigfootdefaulttheme/css/custom.css'

@@ -1,0 +1,6 @@
+/**
+ * Login page
+ */
+.login-layout .navbar, .login-layout .footerbar-container {
+  display: none;
+}

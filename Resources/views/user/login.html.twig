@@ -8,54 +8,56 @@
                     <img src="{{ asset("bundles/bigfootdefaulttheme/images/common/logo-c2is.png") }}" alt="C2iS">
                 </h4>
 
-                <div class="space-6"></div>
+                <div class="col-lg-4"></div>
 
-                <form action="{{ path('admin_login_check') }}" method="post">
-                    <fieldset>
-                        {% if error %}
-                            <div>{{ error.message }}</div>
-                        {% endif %}
+                <div class="col-lg-4">
+                    <form action="{{ path('admin_login_check') }}" method="post">
+                        <fieldset>
+                            {% if error %}
+                                <div>{{ error.message }}</div>
+                            {% endif %}
 
-                        <label class="block clearfix">
-                            <span class="block input-icon input-icon-right">
-                                <input type="text" name="_username" class="form-control" value="{{ last_username }}" placeholder="{{ 'Username'|trans }}" />
-                                <i class="icon-user"></i>
-                            </span>
-                        </label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon-user"></i>
+                                    </span>
+                                    <input type="text" name="_username" class="form-control" value="{{ last_username }}" placeholder="{{ 'Username'|trans }}" />
+                                </div>
+                            </div>
 
-                        <label class="block clearfix">
-                            <span class="block input-icon input-icon-right">
-                                <input type="password" name="_password" class="form-control" placeholder="{{ 'Password'|trans }}" />
-                                <i class="icon-lock"></i>
-                            </span>
-                        </label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon-lock"></i>
+                                    </span>
+                                    <input type="password" name="_password" class="form-control" placeholder="{{ 'Password'|trans }}" />
+                                </div>
+                            </div>
 
-                        <label class="inline" for="remember_me">
-                            <input class="ace" type="checkbox" id="remember_me" name="_remember_me" checked />
-                            <span class="lbl"> {{ 'Remember Me'|trans }}</span>
-                        </label>
+                            <div class="inline" for="remember_me">
+                                <input class="ace" type="checkbox" id="remember_me" name="_remember_me" checked />
+                                <span class="lbl"> {{ 'Remember Me'|trans }}</span>
+                            </div>
 
-                        <div class="space"></div>
+                            <div class="toolbar clearfix hidden">
+                                <a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
+                                    <i class="icon-arrow-left"></i>
+                                    {{ 'I forgot my password'|trans }}
+                                </a>
+                            </div>
 
-                        <div class="clearfix">
-                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
-                                <i class="icon-key"></i>
-                                {{ 'Login'|trans }}
-                            </button>
-                        </div>
+                            <div class="clearfix">
+                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                    <i class="icon-key"></i>
+                                    {{ 'Login'|trans }}
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
 
-                        <div class="space-4"></div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-
-        <div class="toolbar clearfix">
-            <div>
-                <a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
-                    <i class="icon-arrow-left"></i>
-                    {{ 'I forgot my password'|trans }}
-                </a>
+                <div class="col-lg-4"></div>
             </div>
         </div>
     </div>
