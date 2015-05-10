@@ -6,23 +6,19 @@
             {% for item in breadcrumb %}
                 <li>
                     {% if item.uri is not empty %}
-                        <a href="{{ item.uri }}">{{ item.label | trans }}</a>
+                        <a href="{{ item.uri }}">{{ item.label | trans() }}</a>
                     {% else %}
                         {% if item.label == 'Home' %}
                             <i class="icon-home home-icon"></i>
                         {% endif %}
 
-                        {{ item.label }}
+                        {{ item.label | trans() }}
                     {% endif %}
 
                     {% if not loop.last %}
                     {% endif %}
                 </li>
             {% endfor %}
-
-            {# <li>{{ app.request.get('_route') }}</li> #}
         </ul>
-
-        {# {{ render(controller('BigfootCoreBundle:QuickLink:quickLinkStar', { 'currentRoute' : app.request.uri })) }} #}
     </div>
 {% endif %}

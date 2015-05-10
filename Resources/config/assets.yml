@@ -7,8 +7,12 @@ assetic:
                 - 'bundles/bigfootdefaulttheme/vendor/jquery/dist/jquery.min.js'
         admin_js:
             inputs:
-                - 'bundles/bigfootdefaulttheme/js/scripts.min.js'
+                - 'bundles/bigfootdefaulttheme/js/scripts.js'
+                # - 'bundles/bigfootdefaulttheme/js/scripts.min.js'
+                - 'bundles/bigfootdefaulttheme/vendor/bootstrap.min.js'
+                - 'bundles/bigfootdefaulttheme/vendor/bootbox.js'
                 - '%kernel.root_dir%/../vendor/jms/twig-js/twig.js'
+                - 'bundles/bigfootdefaulttheme/js/admin.js'
         admin_css:
             inputs:
                 - 'bundles/bigfootdefaulttheme/css/styles.css'

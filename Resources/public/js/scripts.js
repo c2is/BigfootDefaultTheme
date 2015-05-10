@@ -67,7 +67,7 @@ feature.formdata = window.FormData !== undefined;
 var hasProp = !!$.fn.prop;
 
 // attr2 uses prop when it can but checks the return type for
-// an expected string.  this accounts for the case where a form 
+// an expected string.  this accounts for the case where a form
 // contains inputs with names like "action" or "method"; in those
 // cases "prop" returns the element
 $.fn.attr2 = function(a, b) {
@@ -2095,12 +2095,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 					that.backdrop(modal, function () {
 						modal.$element.show();
 
-						if (transition) {       
-							//modal.$element[0].style.display = 'run-in';       
+						if (transition) {
+							//modal.$element[0].style.display = 'run-in';
 							modal.$element[0].offsetWidth;
-							//modal.$element.one($.support.transition.end, function () { modal.$element[0].style.display = 'block' });  
+							//modal.$element.one($.support.transition.end, function () { modal.$element[0].style.display = 'block' });
 						}
-						
+
 						modal.layout();
 
 						modal.$element
@@ -2131,7 +2131,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				} else if (modal.$backdrop){
 					var transition = $.support.transition && modal.$element.hasClass('fade');
 
-					// trigger a relayout due to firebox's buggy transition end event 
+					// trigger a relayout due to firebox's buggy transition end event
 					if (transition) { modal.$element[0].offsetWidth; }
 					$.support.transition && modal.$element.hasClass('fade') ?
 						modal.$backdrop.one($.support.transition.end, function () { modal.destroy(); }) :
@@ -2428,7 +2428,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 	$.fn.modalmanager.Constructor = ModalManager
 
-	// ModalManager handles the modal-open class so we need 
+	// ModalManager handles the modal-open class so we need
 	// to remove conflicting bootstrap 3 event handlers
 	$(function () {
 		$(document).off('show.bs.modal').off('hidden.bs.modal');
@@ -2574,7 +2574,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			}
 
 			var modalOverflow = $(window).height() - 10 < this.$element.height();
-            
+
 			if (modalOverflow || this.options.modalOverflow) {
 				this.$element
 					.css('margin-top', 0)
@@ -2742,7 +2742,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				.removeData('modal')
 				.removeClass('in')
 				.attr('aria-hidden', true);
-			
+
 			if (this.$parent !== this.$element.parent()) {
 				this.$element.appendTo(this.$parent);
 			} else if (!this.$parent.length) {
