@@ -35,7 +35,7 @@
                 basePath              = "{{ app.request.basePath }}",
                 tagsPath              = "{{ path('admin_tag_get') }}",
                 defaultLocale         = currentLocale,
-                locales               = ["{{ localeFlags() | join('","') | raw }}"];
+                locales               = ["{{ bigfoot_locale_flags() | join('","') | raw }}"];
         </script>
 
         {% block javascripts %}
